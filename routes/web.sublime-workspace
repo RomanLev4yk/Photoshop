@@ -1,0 +1,419 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"Cat",
+				"CatResource"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "api.php",
+			"settings":
+			{
+				"buffer_size": 723,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/OSPanel/domains/PS/app/Http/Controllers/ImageController.php",
+			"settings":
+			{
+				"buffer_size": 1639,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nnamespace App\\Services\n\nuse App\\Model\\History;\nuse Illuminate\\Http\\Request;\n\n\nclass ImageService\n{\n\n\n}",
+			"file": "/D/OSPanel/domains/PS/app/Services/ImageService.php",
+			"file_size": 0,
+			"file_write_time": 131881331358714045,
+			"settings":
+			{
+				"buffer_size": 109,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/OSPanel/domains/PS/app/Model/History.php",
+			"settings":
+			{
+				"buffer_size": 135,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/OSPanel/domains/PS",
+		"/D/OSPanel/domains/PS/app",
+		"/D/OSPanel/domains/PS/app/Services",
+		"/D/OSPanel/domains/PS/database",
+		"/D/OSPanel/domains/PS/database/factories",
+		"/D/OSPanel/domains/PS/database/migrations",
+		"/D/OSPanel/domains/PS/database/seeds",
+		"/D/OSPanel/domains/PS/routes",
+		"/D/OSPanel/domains/task",
+		"/D/OSPanel/domains/task/app",
+		"/D/OSPanel/domains/task/app/Http",
+		"/D/OSPanel/domains/task/app/Http/Controllers",
+		"/D/OSPanel/domains/task/routes"
+	],
+	"file_history":
+	[
+		"/D/OSPanel/domains/PS/app/Http/Controllers/ImageController.php",
+		"/D/OSPanel/domains/PS/database/seeds/DatabaseSeeder.php",
+		"/D/OSPanel/domains/PS/database/seeds/UsersTableSeeder.php",
+		"/D/OSPanel/domains/PS/database/seeds/UsersTableFactorySeeder.php",
+		"/D/OSPanel/domains/PS/database/migrations/2018_11_29_092919_create_users_histories_table.php",
+		"/D/OSPanel/domains/PS/database/migrations/2018_11_29_093431_create_histories_table.php",
+		"/D/OSPanel/domains/PS/.env",
+		"/D/OSPanel/domains/PS/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/D/OSPanel/domains/PS/routes/web.php",
+		"/D/OSPanel/domains/newtask/3.php",
+		"/D/OSPanel/domains/PS/public/index.php",
+		"/D/OSPanel/modules/php/PHP-7.2-x64/php.ini",
+		"/D/OSPanel/domains/newtask/1.php",
+		"/D/OSPanel/domains/localhost/index.php",
+		"/C/OpenServer/OSPanel/domains/newtask/generator.php",
+		"/C/OpenServer/OSPanel/domains/newtask/2.php",
+		"/C/OpenServer/OSPanel/modules/php/PHP-7.2-x64/php.ini",
+		"/C/OpenServer/OSPanel/domains/newtask/TZ.php",
+		"/C/OpenServer/OSPanel/domains/newtask/1.php",
+		"/F/page.php",
+		"/C/OpenServer/OSPanel/domains/newtask/array.php",
+		"/C/OpenServer/OSPanel/domains/task/.env",
+		"/C/OpenServer/OSPanel/domains/shop2/app/Events/createNewOrderEvent.php",
+		"/C/OpenServer/OSPanel/domains/shop2/app/Http/Controllers/Controller.php",
+		"/C/OpenServer/OSPanel/domains/shop2/app/Http/Controllers/PageController.php",
+		"/C/OpenServer/OSPanel/domains/shop2/app/Libs/Resize/preview.php",
+		"/C/OpenServer/OSPanel/domains/shop2/app/Model/MultiColumnVariable.php",
+		"/C/OpenServer/OSPanel/domains/shop2/app/Model/MultiLineVariable.php",
+		"/C/OpenServer/OSPanel/domains/shop2/app/Model/MultiVariableContent.php",
+		"/C/OpenServer/OSPanel/domains/shop2/app/Model/Variable.php",
+		"/C/OpenServer/OSPanel/domains/shop2/composer.json",
+		"/C/OpenServer/OSPanel/domains/shop2/database/seeds/DatabaseSeeder.php",
+		"/C/OpenServer/OSPanel/domains/shop2/composer.lock",
+		"/C/OpenServer/OSPanel/domains/shop2/resources/views/base/header.blade.php",
+		"/C/OpenServer/OSPanel/domains/shop2/resources/views/base/slider.blade.php",
+		"/C/OpenServer/OSPanel/domains/shop2/resources/views/content/index.blade.php",
+		"/C/OpenServer/OSPanel/domains/task/tests/Unit/CatUnitTest.php",
+		"/C/OpenServer/OSPanel/domains/task/routes/api.php",
+		"/C/OpenServer/OSPanel/domains/task/tests/Feature/CatTest.php",
+		"/C/OpenServer/OSPanel/domains/task/app/Http/Controllers/CatController.php",
+		"/C/OpenServer/OSPanel/domains/task/app/Cat.php",
+		"/C/OpenServer/OSPanel/domains/task/database/migrations/2018_11_08_094659_create_cats_table.php",
+		"/C/OpenServer/OSPanel/domains/task/app/Http/Resources/CatResource.php",
+		"/C/OpenServer/OSPanel/domains/task/app/Http/Controllers/Api/CatController.php",
+		"/C/OpenServer/OSPanel/domains/task/routes/web.php",
+		"/C/OpenServer/OSPanel/domains/task/database/seeds/CatsTableSeeder.php",
+		"/C/OpenServer/OSPanel/domains/task/database/seeds/CatsTableFactorySeeder.php",
+		"/C/OpenServer/OSPanel/domains/task/database/seeds/DatabaseSeeder.php",
+		"/C/OpenServer/OSPanel/domains/task/database/factories/CatFactory.php",
+		"/C/OpenServer/OSPanel/domains/shop2/.env",
+		"/C/OpenServer/OSPanel/domains/shop2/.gitignore",
+		"/C/OpenServer/OSPanel/domains/localhost/index.php",
+		"/C/OpenServer/OSPanel/domains/shop2/.env.example",
+		"/C/OpenServer/OSPanel/domains/shop2/.git/description",
+		"/C/OpenServer/OSPanel/domains/shop/.git/config",
+		"/C/OpenServer/OSPanel/domains/shop2/.git/config",
+		"/C/OpenServer/OSPanel/domains/shop/database/seeds/DatabaseSeeder.php",
+		"/C/OpenServer/OSPanel/domains/shop/artisan",
+		"/C/OpenServer/OSPanel/domains/shop/routes/api.php",
+		"/C/OpenServer/OSPanel/domains/shop/vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/console.stub",
+		"/C/OpenServer/OSPanel/domains/shop/routes/web.php",
+		"/C/OpenServer/OSPanel/domains/shop/.env",
+		"/C/OpenServer/OSPanel/domains/shop/resources/views/base/meta.blade.php",
+		"/C/OpenServer/OSPanel/domains/shop/resources/lang/en/responses.php",
+		"/C/OpenServer/OSPanel/domains/shop/resources/views/base/header.blade.php",
+		"/C/Users/Рома/Downloads/beetroot-shop_artem_busygin/beetroot-shop_artem_busygin/composer.json",
+		"/D/shop/routes/api.php",
+		"/C/Users/Рома/Downloads/beetroot-shop_artem_busygin/beetroot-shop_artem_busygin/routes/api.php",
+		"/C/Users/Рома/Downloads/beetroot-shop_artem_busygin/beetroot-shop_artem_busygin/routes/web.php",
+		"/C/Users/Рома/Downloads/beetroot-shop_artem_busygin/beetroot-shop_artem_busygin/.gitattributes",
+		"/C/OpenServer/OSPanel/domains/localhost/.htaccess"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"isset",
+			"OrderController"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"CatController"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "api.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								723,
+								723
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/OSPanel/domains/PS/app/Http/Controllers/ImageController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1639,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								222,
+								222
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/OSPanel/domains/PS/app/Services/ImageService.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 109,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								84,
+								84
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/D/OSPanel/domains/PS/app/Model/History.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 135,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								130,
+								130
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "web.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 326.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
