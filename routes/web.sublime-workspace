@@ -23,38 +23,18 @@
 			"file": "api.php",
 			"settings":
 			{
-				"buffer_size": 723,
+				"buffer_size": 1681,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/D/OSPanel/domains/PS/app/Http/Controllers/ImageController.php",
-			"settings":
-			{
-				"buffer_size": 1639,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<?php\n\nnamespace App\\Services\n\nuse App\\Model\\History;\nuse Illuminate\\Http\\Request;\n\n\nclass ImageService\n{\n\n\n}",
 			"file": "/D/OSPanel/domains/PS/app/Services/ImageService.php",
-			"file_size": 0,
-			"file_write_time": 131881331358714045,
 			"settings":
 			{
-				"buffer_size": 109,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/OSPanel/domains/PS/app/Model/History.php",
-			"settings":
-			{
-				"buffer_size": 135,
+				"buffer_size": 108,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -92,21 +72,32 @@
 	[
 		"/D/OSPanel/domains/PS",
 		"/D/OSPanel/domains/PS/app",
+		"/D/OSPanel/domains/PS/app/Http",
+		"/D/OSPanel/domains/PS/app/Http/Controllers",
+		"/D/OSPanel/domains/PS/app/Model",
 		"/D/OSPanel/domains/PS/app/Services",
-		"/D/OSPanel/domains/PS/database",
-		"/D/OSPanel/domains/PS/database/factories",
-		"/D/OSPanel/domains/PS/database/migrations",
-		"/D/OSPanel/domains/PS/database/seeds",
 		"/D/OSPanel/domains/PS/routes",
 		"/D/OSPanel/domains/task",
 		"/D/OSPanel/domains/task/app",
 		"/D/OSPanel/domains/task/app/Http",
-		"/D/OSPanel/domains/task/app/Http/Controllers",
-		"/D/OSPanel/domains/task/routes"
+		"/D/OSPanel/domains/task/app/Http/Controllers"
 	],
 	"file_history":
 	[
+		"/D/OSPanel/domains/PS/app/Services/GlobalService.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/RotateController.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/FlopController.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/FilterController.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/CropController.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/BorderController.php",
+		"/D/OSPanel/domains/PS/app/Model/User_History.php",
+		"/D/OSPanel/domains/PS/app/Services/ImageService.php",
 		"/D/OSPanel/domains/PS/app/Http/Controllers/ImageController.php",
+		"/D/OSPanel/domains/PS/routes/web.php",
+		"/D/OSPanel/modules/http/Nginx-1.14/conf/nginx.conf",
+		"/D/OSPanel/domains/PS/app/Providers/RouteServiceProvider.php",
+		"/D/OSPanel/domains/PS/app/Model/History.php",
+		"/D/OSPanel/domains/PS/.git/config",
 		"/D/OSPanel/domains/PS/database/seeds/DatabaseSeeder.php",
 		"/D/OSPanel/domains/PS/database/seeds/UsersTableSeeder.php",
 		"/D/OSPanel/domains/PS/database/seeds/UsersTableFactorySeeder.php",
@@ -114,7 +105,6 @@
 		"/D/OSPanel/domains/PS/database/migrations/2018_11_29_093431_create_histories_table.php",
 		"/D/OSPanel/domains/PS/.env",
 		"/D/OSPanel/domains/PS/database/migrations/2014_10_12_000000_create_users_table.php",
-		"/D/OSPanel/domains/PS/routes/web.php",
 		"/D/OSPanel/domains/newtask/3.php",
 		"/D/OSPanel/domains/PS/public/index.php",
 		"/D/OSPanel/modules/php/PHP-7.2-x64/php.ini",
@@ -214,7 +204,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -223,73 +213,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 723,
+						"buffer_size": 1681,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								723,
-								723
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/D/OSPanel/domains/PS/app/Http/Controllers/ImageController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1639,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								222,
-								222
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/D/OSPanel/domains/PS/app/Services/ImageService.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 109,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								84,
-								84
+								766,
+								766
 							]
 						],
 						"settings":
@@ -304,20 +236,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/D/OSPanel/domains/PS/app/Model/History.php",
+					"buffer": 1,
+					"file": "/D/OSPanel/domains/PS/app/Services/ImageService.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 135,
+						"buffer_size": 108,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								130,
-								130
+								108,
+								108
 							]
 						],
 						"settings":
@@ -328,7 +260,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

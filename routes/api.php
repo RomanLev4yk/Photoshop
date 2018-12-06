@@ -17,8 +17,34 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-	Route::group(function () {
-	    Route::get('/{id}', 'ImageController@show');
-	    Route::post('/', 'ImageController@edit');
-	    Route::delete('/{id}', 'ImageController@delete');
+	Route::prefix('/rotate') // rotateimage
+		->group(function () {
+		    Route::get('/{id}', 'RotateController@show');
+		    Route::post('/', 'RotateController@edit');
+		    Route::delete('/{id}', 'RotateController@delete');
 	}); 
+	Route::prefix('/crop') //cropimage
+		->group(function () {
+		    Route::get('/{id}', 'CropController@show');
+		    Route::post('/', 'CropController@edit');
+		    Route::delete('/{id}', 'CropController@delete');
+	}); 
+	Route::prefix('/border')  //borderimage
+		->group(function () {
+		    Route::get('/{id}', 'BorderController@show');
+		    Route::post('/', 'BorderController@edit');
+		    Route::delete('/{id}', 'BorderController@delete');
+	}); 
+	Route::prefix('/flop') //flopimage  отражение слева направо
+		->group(function () {
+		    Route::get('/{id}', 'FlopController@show');
+		    Route::post('/', 'FlopController@edit');
+		    Route::delete('/{id}', 'FlopController@delete');
+	}); 
+	Route::prefix('/filter') //filter
+		->group(function () {
+		    Route::get('/{id}', 'FilterController@show');
+		    Route::post('/', 'FilterController@edit');
+		    Route::delete('/{id}', 'FilterController@delete');
+	}); 
+	
