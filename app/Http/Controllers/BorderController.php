@@ -15,7 +15,7 @@ class BorderController extends Controller
 
     public function edit()
     {
-        
+        print_r('111111'); 
     }
   
     public function delete()

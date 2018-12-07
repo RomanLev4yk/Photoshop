@@ -17,6 +17,12 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
+	Route::prefix('/store') // storeimage
+		->group(function () {
+		    Route::post('/', 'StoreController@store');
+		    Route::delete('/{id}', 'StoreController@delete');
+	}); 
+
 	Route::prefix('/rotate') // rotateimage
 		->group(function () {
 		    Route::get('/{id}', 'RotateController@show');
