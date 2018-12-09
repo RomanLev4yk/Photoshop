@@ -8,7 +8,7 @@ use App\Model\History;
 
 class GlobalService
 {
-	public function fileStore ($path, $edit_history)
+	static function fileStore ($path, $edit_history)
 	{
 		$model = new History;
 	    try {

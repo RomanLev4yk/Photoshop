@@ -19,14 +19,15 @@ use Illuminate\Http\Request;
 
 	Route::prefix('/store') // storeimage
 		->group(function () {
+			Route::get('/{id}', 'StoreController@show');
 		    Route::post('/', 'StoreController@store');
 		    Route::delete('/{id}', 'StoreController@delete');
 	}); 
 
 	Route::prefix('/rotate') // rotateimage
 		->group(function () {
-		    Route::get('/{id}', 'RotateController@show');
-		    Route::post('/', 'RotateController@edit');
+		    //Route::get('/{id}', 'RotateController@show');
+		    Route::get('/', 'RotateController@edit');
 		    Route::delete('/{id}', 'RotateController@delete');
 	}); 
 	Route::prefix('/crop') //cropimage

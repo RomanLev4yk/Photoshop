@@ -8,6 +8,24 @@ use App\Model\History;
 
 class StoreController extends Controller
 {
+	public function show(int $id)
+    {
+    	try {
+      		$model = History::findOrFail($id);
+    	} catch (\Exception $err) {
+      		logger($err->getMessage());
+
+      	return response()->json([
+        	'status'=> false,
+        	'message' => $err->getMessage(),
+        	'model'=>null], 422);
+    	}
+
+    	return response()->json([
+      		'status'=>true,
+      		'model'=>$model,], 200);
+    }
+
 	public function store(Request $request)
     {
 	    try{
@@ -22,35 +40,15 @@ class StoreController extends Controller
 	        	'status'=> false,
 	          	'message' => $err->getMessage()]);
 	    }	
+
 	    $file = $validation['photo'];
 	    $extension = $file->getClientOriginalExtension();
 	    $filename = 'profile-photo-' . time() . '.' . $extension;
 	    $path = $file->storeAs('photos', $filename);
 	    $edit_history = 'file store';
 
-	    $globalService = new GlobalService();
-		return $globalService->fileStore($path, $edit_history);
-
-	    // $model = new History;
-	    // try {
-	    //   	$model = $model->fill([
-	    //     'edit_history'=> 'file store',
-	    //     'result_file_path'=> $path
-	    //   	]);
-	    //   	$model->save();
-	    // } catch (\Exception $err) {
-	    //   	logger($err->getMessage());
-
-	    // return response()->json([
-	    //     'status'=> false,
-	    //     'message' => $err->getMessage(),
-	    //     'model'=>null], 422);
-	    // }
-	    // return response()->json([
-		   //  'status'=>true,
-		   //  'message'=>('upload success'),
-		   //  'model'=>$model], 200);
-    }
+		return GlobalService::fileStore($path, $edit_history);
+	}
   
     public function delete(int $id)
     {
@@ -66,7 +64,6 @@ class StoreController extends Controller
     	}
     return response()->json([
       	'status'=>true,
-      	'message'=>('file delete successful'),
-      	'model'=>null ], 200); 
+      	'message'=>('file delete successful')], 200); 
     }
 }
