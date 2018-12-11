@@ -9,64 +9,23 @@ use Imagick;
 
 class RotateController extends Controller
 {
-    // public function show()
-    // {
+    public function edit(int $id) {
+
+    	$edit_file = History::findOrFail($id);
+    	$realpath = realpath('D:\OSPanel\domains\PS\storage\app\\' . $edit_file["result_file_path"]);
+		$imagick = new Imagick ($realpath);
+		$imagick->rotateimage('black', 90);
+		$extension = explode(".", $realpath);
+	    $filename = 'edited-photo-' . time() . '.' . $extension[1];
+	    file_put_contents( 'D:\OSPanel\domains\PS\storage\app\photos\\' . $filename, $imagick);
+	    $path = 'photos/' . $filename;
+	    $edit_history = 'image rotate';
+	    
+		return GlobalService::fileStore($path, $edit_history);
+	}
+
+	public function delete()
+    {
         
-    // }
-
-    // public function edit(int $id)
-    // {
-    // 	try {
-    //   		$model = History::findOrFail($id);
-    // 	} catch (\Exception $err) {
-    //   		logger($err->getMessage());
-
-    //   	return response()->json([
-    //     	'status'=> false,
-    //     	'message' => $err->getMessage(),
-    //     	'model'=>null], 422);
-    // 	}
-
-    public function edit() {
-		    $imagick = new Imagick (realpath('D:\OSPanel\domains\PS\storage\app\Photos\1.JPG'));
-		    
-		    $imagick->rotateimage('black', 90);
-
-		    
-
-		    $model = new History;
-	    try {
-	      	$model = $model->fill([
-	        'edit_history'=> '1',
-	        'result_file_path'=> '1'
-	      	]);
-	      	$model->save();
-	    } catch (\Exception $err) {
-	      	logger($err->getMessage());
-
-	    return response()->json([
-	        'status'=> false,
-	        'message' => $err->getMessage(),
-	        'model'=>null], 422);
-	    }
-	    return response()->json([
-		    'status'=>true,
-		    'message'=>('upload success'),
-		    'model'=>$model], 200);
-		    //var_dump($imagick);
-    	//print_r('111111');
-		}
-
-    	// $imagick = new Imagick('photos/profile-photo-1544174453.JPG');
-    	// var_dump($model);
-
-    	// return response()->json([
-     //  		'status'=>true,
-     //  		'model'=>$model,], 200);
-    //}
-  
-    // public function delete()
-    // {
-        
-    // }
+    }
 }

@@ -27,7 +27,7 @@ use Illuminate\Http\Request;
 	Route::prefix('/rotate') // rotateimage
 		->group(function () {
 		    //Route::get('/{id}', 'RotateController@show');
-		    Route::get('/', 'RotateController@edit');
+		    Route::get('/{id}', 'RotateController@edit');
 		    Route::delete('/{id}', 'RotateController@delete');
 	}); 
 	Route::prefix('/crop') //cropimage
