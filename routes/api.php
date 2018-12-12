@@ -17,41 +17,31 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-	Route::prefix('/store') // storeimage
+	Route::prefix('/store')
 		->group(function () {
 			Route::get('/{id}', 'StoreController@show');
 		    Route::post('/', 'StoreController@store');
 		    Route::delete('/{id}', 'StoreController@delete');
 	}); 
 
-	Route::prefix('/rotate') // rotateimage
+	Route::prefix('/rotate')
 		->group(function () {
-		    //Route::get('/{id}', 'RotateController@show');
-		    Route::get('/{id}', 'RotateController@edit');
-		    Route::delete('/{id}', 'RotateController@delete');
+		    Route::get('/', 'RotateController@edit');
 	}); 
-	Route::prefix('/crop') //cropimage
+	Route::prefix('/crop')
 		->group(function () {
-		    Route::get('/{id}', 'CropController@show');
-		    Route::post('/', 'CropController@edit');
-		    Route::delete('/{id}', 'CropController@delete');
+		    Route::get('/', 'CropController@edit');
 	}); 
-	Route::prefix('/border')  //borderimage
+	Route::prefix('/border')
 		->group(function () {
-		    Route::get('/{id}', 'BorderController@show');
-		    Route::post('/', 'BorderController@edit');
-		    Route::delete('/{id}', 'BorderController@delete');
+		    Route::get('/', 'BorderController@edit');
 	}); 
-	Route::prefix('/flop') //flopimage  отражение слева направо
+	Route::prefix('/flop')
 		->group(function () {
-		    Route::get('/{id}', 'FlopController@show');
-		    Route::post('/', 'FlopController@edit');
-		    Route::delete('/{id}', 'FlopController@delete');
+		    Route::get('/', 'FlopController@edit');
 	}); 
-	Route::prefix('/filter') //filter
+	Route::prefix('/filter')
 		->group(function () {
-		    Route::get('/{id}', 'FilterController@show');
-		    Route::post('/', 'FilterController@edit');
-		    Route::delete('/{id}', 'FilterController@delete');
+		    Route::get('/', 'FilterController@edit');
 	}); 
 	

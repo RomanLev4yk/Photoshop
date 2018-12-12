@@ -9,12 +9,35 @@ use Imagick;
 
 class RotateController extends Controller
 {
-    public function edit(int $id) {
+    public function edit(Request $request) {
 
-    	$edit_file = History::findOrFail($id);
+    	$params = [
+         	'id'=>$request->input('id'),
+         	'direction'=>$request->input('direction')];
+    	$edit_file = History::findOrFail($params['id']);
     	$realpath = realpath('D:\OSPanel\domains\PS\storage\app\\' . $edit_file["result_file_path"]);
 		$imagick = new Imagick ($realpath);
-		$imagick->rotateimage('black', 90);
+		try{
+			if ($params['direction'] == 'right'){
+				$imagick->rotateimage('black', 90);
+			}
+			elseif($params['direction'] == 'left'){
+				$imagick->rotateimage('black', -90);
+			}
+			else {
+				echo('Set the "left" or "right" rotate direction');
+				exit;
+			}
+		}
+		catch (\Exception $err) {
+	      	logger($err->getMessage());
+
+	      	return response()->json([
+	        'status'=> false,
+	        'message' => $err->getMessage(),
+	        'model'=>null], 422);
+	    }
+
 		$extension = explode(".", $realpath);
 	    $filename = 'edited-photo-' . time() . '.' . $extension[1];
 	    file_put_contents( 'D:\OSPanel\domains\PS\storage\app\photos\\' . $filename, $imagick);
@@ -23,9 +46,4 @@ class RotateController extends Controller
 	    
 		return GlobalService::fileStore($path, $edit_history);
 	}
-
-	public function delete()
-    {
-        
-    }
 }
