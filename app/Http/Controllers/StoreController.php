@@ -52,6 +52,18 @@ class StoreController extends Controller
   
     public function delete(int $id){
       
+      $edit_file = History::findOrFail($id);
+      try {
+          unlink('D:\OSPanel\domains\PS\storage\app\\' . $edit_file["result_file_path"]);;
+      } catch (\Exception $err) {
+          logger($err ->getMessage());
+
+      return response()->json([
+          'status'=> false,
+          'message' => $err->getMessage(),
+          'model'=>null], 422);
+      }      
+
     	try {
       		History::destroy($id);
     	} catch (\Exception $err) {
@@ -62,7 +74,7 @@ class StoreController extends Controller
 	        'message' => $err->getMessage(),
 	        'model'=>null], 422);
     	}
-    return response()->json([
+      return response()->json([
       	'status'=>true,
       	'message'=>('file delete successful')], 200); 
     }
