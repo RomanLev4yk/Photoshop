@@ -8,8 +8,8 @@ use App\Model\History;
 
 class StoreController extends Controller
 {
-	public function show(int $id)
-    {
+	public function show(int $id){
+
     	try {
       		$model = History::findOrFail($id);
     	} catch (\Exception $err) {
@@ -24,10 +24,10 @@ class StoreController extends Controller
     	return response()->json([
       		'status'=>true,
       		'model'=>$model,], 200);
-    }
+  }
 
-	public function store(Request $request)
-    {
+	public function store(Request $request){
+
 	    try{
 	    	$validation = $request->validate([
 	        'photo' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
@@ -50,8 +50,8 @@ class StoreController extends Controller
 		return GlobalService::fileStore($path, $edit_history);
 	}
   
-    public function delete(int $id)
-    {
+    public function delete(int $id){
+      
     	try {
       		History::destroy($id);
     	} catch (\Exception $err) {

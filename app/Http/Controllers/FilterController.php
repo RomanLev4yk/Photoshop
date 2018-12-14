@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\GlobalService;
 use App\Model\History;
+use Illuminate\Support\Facades\DB;
 use Imagick;
 
 class FilterController extends Controller
 {
     public function edit(Request $request) {
 
+        $id = DB::table('histories')->orderBy('id', 'DESC')->take(1)->value('id');
     	$params = [
-         	'id'=>$request->input('id'),
          	'radius' =>$request->input('radius'),
          	'sigma' =>$request->input('sigma')];
-    	$edit_file = History::findOrFail($params['id']);
+    	$edit_file = History::findOrFail($id);
     	$realpath = realpath('D:\OSPanel\domains\PS\storage\app\\' . $edit_file["result_file_path"]);
 		$imagick = new Imagick ($realpath);
 		try{

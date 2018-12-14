@@ -8,8 +8,8 @@ use App\Model\History;
 
 class GlobalService
 {
-	static function fileStore ($path, $edit_history)
-	{
+	static function fileStore ($path, $edit_history){
+		
 		$model = new History;
 	    try {
 	      	$model = $model->fill([

@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\GlobalService;
 use App\Model\History;
+use Illuminate\Support\Facades\DB;
 use Imagick;
 
 class FlopController extends Controller
 {
     public function edit(Request $request) {
 
-    	$params = [
-         	'id'=>$request->input('id')];
-    	$edit_file = History::findOrFail($params['id']);
+    	$id = DB::table('histories')->orderBy('id', 'DESC')->take(1)->value('id');
+    	$edit_file = History::findOrFail($id);
     	$realpath = realpath('D:\OSPanel\domains\PS\storage\app\\' . $edit_file["result_file_path"]);
 		$imagick = new Imagick ($realpath);
 		try{
