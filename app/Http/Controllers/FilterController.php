@@ -3,40 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\GlobalService;
-use App\Model\History;
-use Illuminate\Support\Facades\DB;
-use Imagick;
+use App\Services\ImageService;
 
 class FilterController extends Controller
 {
-    public function edit(Request $request) {
 
-        $id = DB::table('histories')->orderBy('id', 'DESC')->take(1)->value('id');
-    	$params = [
-         	'radius' =>$request->input('radius'),
-         	'sigma' =>$request->input('sigma')];
-    	$edit_file = History::findOrFail($id);
-    	$realpath = realpath('D:\OSPanel\domains\PS\storage\app\\' . $edit_file["result_file_path"]);
-		$imagick = new Imagick ($realpath);
-		try{
-			$imagick->charcoalImage($params['radius'], $params['sigma']);
-		}
-		catch (\Exception $err) {
-	      	logger($err->getMessage());
+    protected $imageService;
 
-	      	return response()->json([
-	        'status'=> false,
-	        'message' => $err->getMessage(),
-	        'model'=>null], 422);
-	    }
+    public function __construct(ImageService $imageService)
+    {
+        $this->imageService = $imageService;
+    }
 
-		$extension = explode(".", $realpath);
-	    $filename = 'edited-photo-' . time() . '.' . $extension[1];
-	    file_put_contents( 'D:\OSPanel\domains\PS\storage\app\photos\\' . $filename, $imagick);
-	    $path = 'photos/' . $filename;
-	    $edit_history = 'image filter';
-	    
-		return GlobalService::fileStore($path, $edit_history);
-	}
+    public function filterImage(Request $request)
+    {
+        return $this->imageService->filter($request);
+    }
 }

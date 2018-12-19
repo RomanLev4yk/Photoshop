@@ -19,29 +19,29 @@ use Illuminate\Http\Request;
 
 	Route::prefix('/store')
 		->group(function () {
-			Route::get('/{id}', 'StoreController@show');
-		    Route::post('/', 'StoreController@store');
-		    Route::delete('/{id}', 'StoreController@delete');
+			Route::get('/{id}', 'StoreController@showImage');
+		    Route::post('/', 'StoreController@storeImage');
+		    Route::delete('/{id}', 'StoreController@deleteImage');
 	}); 
 
 	Route::prefix('/rotate')
 		->group(function () {
-		    Route::get('/', 'RotateController@edit');
+		    Route::post('/', 'RotateController@rotateImage');
 	}); 
 	Route::prefix('/crop')
 		->group(function () {
-		    Route::get('/', 'CropController@edit');
+		    Route::post('/', 'CropController@cropImage');
 	}); 
 	Route::prefix('/border')
 		->group(function () {
-		    Route::get('/', 'BorderController@edit');
+		    Route::post('/', 'BorderController@borderImage');
 	}); 
 	Route::prefix('/flop')
 		->group(function () {
-		    Route::get('/', 'FlopController@edit');
+		    Route::post('/', 'FlopController@flopImage');
 	}); 
 	Route::prefix('/filter')
 		->group(function () {
-		    Route::get('/', 'FilterController@edit');
+		    Route::post('/', 'FilterController@filterImage');
 	}); 
 	

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Ima",
+				"ImageRepository"
+			],
+			[
 				"ex",
 				"extension"
 			],
@@ -35,43 +39,24 @@
 			"file": "api.php",
 			"settings":
 			{
-				"buffer_size": 1260,
+				"buffer_size": 1311,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/D/OSPanel/domains/PS/app/Http/Controllers/StoreController.php",
+			"file": "/D/OSPanel/domains/PS/app/Http/Controllers/FlopController.php",
 			"settings":
 			{
-				"buffer_size": 2022,
-				"encoding": "UTF-8",
+				"buffer_size": 406,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/D/OSPanel/domains/PS/app/Http/Controllers/BorderController.php",
+			"file": "/D/OSPanel/domains/PS/app/Model/History.php",
 			"settings":
 			{
-				"buffer_size": 1421,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/D/OSPanel/domains/PS/app/Services/GlobalService.php",
-			"settings":
-			{
-				"buffer_size": 674,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/OSPanel/domains/PS/app/Http/Controllers/RotateController.php",
-			"settings":
-			{
-				"buffer_size": 1411,
-				"encoding": "UTF-8",
+				"buffer_size": 8244,
 				"line_ending": "Unix"
 			}
 		}
@@ -112,27 +97,29 @@
 		"/D/OSPanel/domains/PS/app",
 		"/D/OSPanel/domains/PS/app/Http",
 		"/D/OSPanel/domains/PS/app/Http/Controllers",
-		"/D/OSPanel/domains/PS/app/Services",
-		"/D/OSPanel/domains/PS/vendor",
-		"/D/OSPanel/domains/PS/vendor/laravel",
-		"/D/OSPanel/domains/PS/vendor/laravel/framework",
-		"/D/OSPanel/domains/PS/vendor/laravel/framework/src",
-		"/D/OSPanel/domains/PS/vendor/laravel/framework/src/Illuminate",
-		"/D/OSPanel/domains/PS/vendor/laravel/framework/src/Illuminate/Database",
-		"/D/OSPanel/domains/PS/vendor/laravel/framework/src/Illuminate/Database/Eloquent"
+		"/D/OSPanel/domains/PS/app/Model",
+		"/D/OSPanel/domains/PS/app/Repositories",
+		"/D/OSPanel/domains/PS/app/Services"
 	],
 	"file_history":
 	[
-		"/D/OSPanel/domains/PS/app/Http/Controllers/FlopController.php",
-		"/D/OSPanel/domains/PS/app/Services/GlobalService.php",
-		"/D/OSPanel/domains/PS/app/Http/Controllers/FilterController.php",
+		"/D/OSPanel/domains/PS/app/Model/History.php",
+		"/D/OSPanel/domains/PS/app/Repositories/ImageRepository.php",
+		"/D/OSPanel/domains/PS/app/Services/ImageService.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/StoreController.php",
 		"/D/OSPanel/domains/PS/app/Http/Controllers/CropController.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/BorderController.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/RotateController.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/FlopController.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/FilterController.php",
+		"/D/OSPanel/domains/PS/vendor/laravel/framework/src/Illuminate/Http/Resources/Json/JsonResource.php",
+		"/D/OSPanel/domains/shop2/vendor/laravel/framework/src/Illuminate/Http/Resources/Json/JsonResource.php",
+		"/D/OSPanel/domains/PS/app/Http/Requests/BorderRequestValidation.php",
+		"/D/OSPanel/domains/PS/app/Http/Controllers/Controller.php",
+		"/D/OSPanel/domains/PS/app/Http/Requests/StoreImageRequestValidation.php",
+		"/D/OSPanel/domains/PS/app/Services/GlobalService.php",
 		"/D/OSPanel/domains/PS/app/Http/Middleware/Authenticate.php",
 		"/D/OSPanel/domains/PS/app/Model/User_History.php",
-		"/D/OSPanel/domains/PS/app/Model/History.php",
-		"/D/OSPanel/domains/PS/app/Http/Controllers/RotateController.php",
-		"/D/OSPanel/domains/PS/app/Http/Controllers/BorderController.php",
-		"/D/OSPanel/domains/PS/app/Http/Controllers/StoreController.php",
 		"/D/OSPanel/domains/shop2/app/Model/MultiColumnVariable.php",
 		"/D/OSPanel/domains/shop2/app/Http/Controllers/CurrencyController.php",
 		"/D/OSPanel/domains/PS/1.php",
@@ -145,7 +132,6 @@
 		"/D/OSPanel/domains/newtask/array.php",
 		"/D/OSPanel/domains/newtask/2.php",
 		"/D/OSPanel/domains/newtask/1.php",
-		"/D/OSPanel/domains/PS/app/Services/ImageService.php",
 		"/D/OSPanel/modules/php/PHP-7.2-x64/php.ini",
 		"/D/OSPanel/domains/PS/app/Http/Controllers/ImageController.php",
 		"/D/OSPanel/modules/http/Nginx-1.14/conf/nginx.conf",
@@ -220,7 +206,7 @@
 	],
 	"find":
 	{
-		"height": 32.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -255,7 +241,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -264,15 +250,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1260,
+						"buffer_size": 1311,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								681,
-								681
+								693,
+								693
 							]
 						],
 						"settings":
@@ -280,93 +266,32 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 266.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/D/OSPanel/domains/PS/app/Http/Controllers/StoreController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2022,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								165,
-								165
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/D/OSPanel/domains/PS/app/Http/Controllers/BorderController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1421,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								705,
-								705
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 209.0,
+						"translation.y": 171.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/D/OSPanel/domains/PS/app/Services/GlobalService.php",
-					"semi_transient": true,
+					"buffer": 1,
+					"file": "/D/OSPanel/domains/PS/app/Http/Controllers/FlopController.php",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 674,
+						"buffer_size": 406,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								185,
-								185
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -376,32 +301,33 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "/D/OSPanel/domains/PS/app/Http/Controllers/RotateController.php",
-					"semi_transient": false,
+					"buffer": 2,
+					"file": "/D/OSPanel/domains/PS/app/Model/History.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1411,
+						"buffer_size": 8244,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								172,
-								172
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 168.0,
+						"translation.y": 4617.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -409,11 +335,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 32.0
+		"height": 28.0
 	},
 	"input":
 	{
-		"height": 39.0
+		"height": 40.0
 	},
 	"layout":
 	{
@@ -446,7 +372,7 @@
 	"project": "web.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 52.0
 	},
 	"save_all_on_build": true,
 	"select_file":
