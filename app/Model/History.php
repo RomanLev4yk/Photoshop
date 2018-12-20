@@ -5,6 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Repositories\ImageRepository;
+//use App\Http\Requests\StoreImageRequestValidation;
 use Imagick;
 
 class History extends Model
@@ -44,7 +45,9 @@ class History extends Model
             return response()->json([
                 'status'=> false,
                 'message' => $err->getMessage()]);
-        }   
+        }
+
+        //$validation->photo = $request->input('photo');
 
         $file = $validation['photo'];
         $extension = $file->getClientOriginalExtension();
