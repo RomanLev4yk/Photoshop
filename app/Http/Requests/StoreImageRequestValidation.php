@@ -13,7 +13,7 @@ class StoreImageRequestValidation extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class StoreImageRequestValidation extends FormRequest
     public function rules()
     {
         return [
-            'photo' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
+            'photo' => 'required|file|image|mimes:jpeg,jpg,png,gif,webp|max:2048'
         ];
     }
 }

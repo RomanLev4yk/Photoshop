@@ -17,6 +17,13 @@ class FilterController extends Controller
 
     public function filterImage(Request $request)
     {
-        return $this->imageService->filter($request);
+    	try {
+        	$result = $this->imageService->filter($request);
+        }
+        catch (\Exception $err) {
+        	return response()->json($result, 402);
+        }
+
+        return response()->json($result, 200);
     }
 }

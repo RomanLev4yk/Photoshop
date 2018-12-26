@@ -16,6 +16,13 @@ class BorderController extends Controller
 
     public function borderImage(Request $request)
     {
-        return $this->imageService->border($request);
+        try {
+        	$result = $this->imageService->border($request);
+        }
+        catch (\Exception $err) {
+        	return response()->json($result, 402);
+        }
+
+        return response()->json($result, 200);
     }
 }

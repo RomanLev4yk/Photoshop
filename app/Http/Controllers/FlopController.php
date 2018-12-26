@@ -15,8 +15,15 @@ class FlopController extends Controller
         $this->imageService = $imageService;
     }
 
-    public function flopImage(Request $request)
+    public function flopImage()
     {
-        return $this->imageService->flop($request);
+        try {
+        	$result = $this->imageService->flop();
+        }
+        catch (\Exception $err) {
+        	return response()->json($result, 402);
+        }
+
+        return response()->json($result, 200);
     }
 }

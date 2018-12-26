@@ -5,7 +5,6 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Repositories\ImageRepository;
-//use App\Http\Requests\StoreImageRequestValidation;
 use Imagick;
 
 class History extends Model
@@ -19,43 +18,20 @@ class History extends Model
             $model = History::findOrFail($id);
         }
         catch (\Exception $err){
-            logger($err->getMessage());
-
-            return response()->json([
-            'status'=> false,
-            'message' => $err->getMessage(),
-            'model'=>null], 422);
+            throw $err;
         }
 
-        return response()->json([
-            'status'=>true,
-            'model'=>$model,], 200);
+        return $model;
     }
 
-    public function store(Request $request)
+    public function store($photo)
     {
-        try{
-            $validation = $request->validate([
-            'photo' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048'
-            ]);
-        }
-        catch (\Exception $err){
-            logger($err->getMessage());
-
-            return response()->json([
-                'status'=> false,
-                'message' => $err->getMessage()]);
-        }
-
-        //$validation->photo = $request->input('photo');
-
-        $file = $validation['photo'];
-        $extension = $file->getClientOriginalExtension();
+        $extension = $photo->getClientOriginalExtension();
         $filename = 'profile-photo-' . time() . '.' . $extension;
-        $path = $file->storeAs('photos', $filename);
+        $path = $photo->storeAs('photos', $filename);
         $edit_history = 'file store';
 
-        return ImageRepository::fileStore($path, $edit_history);
+        return $this->fileStore($path, $edit_history);
     }
 
     public function deleteImg(int $id)
@@ -66,53 +42,31 @@ class History extends Model
             unlink( $find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);;
         }
         catch (\Exception $err){
-            logger($err ->getMessage());
-
-            return response()->json([
-            'status'=> false,
-            'message' => $err->getMessage(),
-            'model'=>null], 422);
+            throw $err;
         }      
 
         try{
             History::destroy($id);
         }
         catch (\Exception $err){
-            logger($err ->getMessage());
-
-            return response()->json([
-            'status'=> false,
-            'message' => $err->getMessage(),
-            'model'=>null], 422);
+            throw $err;
         }
 
-        return response()->json([
-            'status'=>true,
-            'message'=>('file delete successful')], 200); 
+        return true; 
     }
 
-    public function border(Request $request)
+    public function border($params)
     {
-		$params = [
-            'color' =>$request->input('color'),
-            'width' =>$request->input('width'),
-            'height' =>$request->input('height')];
-
         $edit_file = History::findOrFail(ImageRepository::findLastId());
         $find_file = explode("app", __DIR__); 
         $realpath = realpath($find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);
 
         $imagick = new Imagick ($realpath);
         try{
-            $imagick->borderImage($params['color'], $params['width'], $params['height']);
+            $imagick->borderImage($params[0], $params[1], $params[2]);
         }
         catch (\Exception $err){
-            logger($err->getMessage());
-
-            return response()->json([
-            'status'=> false,
-            'message' => $err->getMessage(),
-            'model'=>null], 422);
+            throw $err;
         }
 
         $extension = explode(".", $realpath);
@@ -121,32 +75,21 @@ class History extends Model
         $path = 'photos/' . $filename;
         $edit_history = 'image border';
 
-        return ImageRepository::fileStore($path, $edit_history);
+        return $this->fileStore($path, $edit_history);
     }
 
-    public function crop(Request $request)
+    public function crop($params)
     {
-        $params = [
-            'width' =>$request->input('width'),
-            'height' =>$request->input('height'),
-            'startX' =>$request->input('startX'),
-            'startY' =>$request->input('startY')];
-
         $edit_file = History::findOrFail(ImageRepository::findLastId());
         $find_file = explode("app", __DIR__); 
         $realpath = realpath($find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);
 
         $imagick = new Imagick ($realpath);
         try{
-            $imagick->cropimage($params['width'], $params['height'], $params['startX'], $params['startY']);
+            $imagick->cropimage($params[0], $params[1], $params[2], $params[3]);
         }
         catch (\Exception $err){
-            logger($err->getMessage());
-
-            return response()->json([
-            'status'=> false,
-            'message' => $err->getMessage(),
-            'model'=>null], 422);
+            throw $err;
         }
 
         $extension = explode(".", $realpath);
@@ -155,30 +98,21 @@ class History extends Model
         $path = 'photos/' . $filename;
         $edit_history = 'image crop';
 
-        return ImageRepository::fileStore($path, $edit_history);
+        return $this->fileStore($path, $edit_history);
     }
 
-    public function filter(Request $request)
+    public function filter($params)
     {
-        $params = [
-            'radius' =>$request->input('radius'),
-            'sigma' =>$request->input('sigma')];
-
         $edit_file = History::findOrFail(ImageRepository::findLastId());
         $find_file = explode("app", __DIR__); 
         $realpath = realpath($find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);
 
         $imagick = new Imagick ($realpath);
         try{
-            $imagick->charcoalImage($params['radius'], $params['sigma']);
+            $imagick->charcoalImage($params[0], $params[1]);
         }
         catch (\Exception $err){
-            logger($err->getMessage());
-
-            return response()->json([
-            'status'=> false,
-            'message' => $err->getMessage(),
-            'model'=>null], 422);
+            throw $err;
         }
 
         $extension = explode(".", $realpath);
@@ -187,10 +121,10 @@ class History extends Model
         $path = 'photos/' . $filename;
         $edit_history = 'image filter';
 
-        return ImageRepository::fileStore($path, $edit_history);
+        return $this->fileStore($path, $edit_history);
     }
 
-    public function flop(Request $request)
+    public function flop()
     {
         $edit_file = History::findOrFail(ImageRepository::findLastId());
         $find_file = explode("app", __DIR__); 
@@ -201,12 +135,7 @@ class History extends Model
             $imagick->flopimage();
         }
         catch (\Exception $err) {
-            logger($err->getMessage());
-
-            return response()->json([
-            'status'=> false,
-            'message' => $err->getMessage(),
-            'model'=>null], 422);
+            throw $err;
         }
 
         $extension = explode(".", $realpath);
@@ -215,24 +144,21 @@ class History extends Model
         $path = 'photos/' . $filename;
         $edit_history = 'image flop';
 
-        return ImageRepository::fileStore($path, $edit_history);
+        return $this->fileStore($path, $edit_history);
     }
 
-    public function rotate(Request $request)
+    public function rotate($params)
     {
-        $params = [
-            'direction'=>$request->input('direction')];
-
         $edit_file = History::findOrFail(ImageRepository::findLastId());
         $find_file = explode("app", __DIR__); 
         $realpath = realpath($find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);
 
         $imagick = new Imagick ($realpath);
         try{
-            if ($params['direction'] == 'right'){
+            if ($params[0] == 'right'){
                 $imagick->rotateimage('black', 90);
             }
-            elseif($params['direction'] == 'left'){
+            elseif($params[0] == 'left'){
                 $imagick->rotateimage('black', -90);
             }
             else {
@@ -241,12 +167,7 @@ class History extends Model
             }
         }
         catch (\Exception $err){
-            logger($err->getMessage());
-
-            return response()->json([
-            'status'=> false,
-            'message' => $err->getMessage(),
-            'model'=>null], 422);
+            throw $err;
         }
 
         $extension = explode(".", $realpath);
@@ -255,6 +176,23 @@ class History extends Model
         $path = 'photos/' . $filename;
         $edit_history = 'image rotate';
 
-        return ImageRepository::fileStore($path, $edit_history);
+        return $this->fileStore($path, $edit_history);
+    }
+
+    public function fileStore ($path, $edit_history)
+    {   
+        $model = new History;
+        try{
+            $model = $model->fill([
+            'edit_history'=> $edit_history,
+            'result_file_path'=> $path
+            ]);
+            $model->save();
+        }
+        catch (\Exception $err){
+            throw $err;
+        }
+        
+        return $model;
     }
 }

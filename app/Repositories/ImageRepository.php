@@ -5,8 +5,6 @@ namespace App\Repositories;
 use Illuminate\Http\Request;
 use App\Model\History;
 use Illuminate\Support\Facades\DB;
-//use App\Http\Requests\StoreImageRequestValidation;
-
 
 class ImageRepository
 {
@@ -20,68 +18,163 @@ class ImageRepository
 
     public function show(int $id)
     {
-        return $this->history->show($id);
+        try{
+            $model = $this->history->show($id);
+        }
+        catch (\Exception $err){
+            return [
+            'status'=> false,
+            'message' => $err->getMessage(),
+            'model'=>null
+            ];
+        }
+
+        return [
+            'status'=>true,
+            'message' => 'success',
+            'model'=>$model
+        ];
     }
 
-    public function store(Request $request)
+    public function store($photo)
     {
-        return $this->history->store($request);
+        try{
+            $model = $this->history->store($photo);
+        }
+        catch (\Exception $err){
+            return [
+            'status'=> false,
+            'message' => $err->getMessage(),
+            'model'=>null
+            ];
+        }
+
+        return [
+            'status'=>true,
+            'message' => 'success',
+            'model'=>$model
+        ];
     }
 
     public function deleteImg(int $id)
     {
-        return $this->history->deleteImg($id);
+        try{
+            $this->history->deleteImg($id);
+        }
+        catch (\Exception $err){
+            return [
+            'status'=> false,
+            'message' => $err->getMessage(),
+            'model'=>null
+            ];
+        }
+
+        return [
+            'status'=>true,
+            'message' => 'File delete success'
+        ];
     }
 
-    public function border(Request $request)
+    public function border($params)
     {
-    	return $this->history->border($request);
+        try{
+            $model = $this->history->border($params);
+        }
+        catch (\Exception $err){
+            return [
+            'status'=> false,
+            'message' => $err->getMessage(),
+            'model'=>null
+            ];
+        }
+
+        return [
+            'status'=>true,
+            'message' => 'success',
+            'model'=>$model
+        ];
     }
 
-    public function crop(Request $request)
+    public function crop($params)
     {
-    	return $this->history->crop($request);
+        try{
+            $model = $this->history->crop($params);
+        }
+        catch (\Exception $err){
+            return [
+            'status'=> false,
+            'message' => $err->getMessage(),
+            'model'=>null
+            ];
+        }
+
+        return [
+            'status'=>true,
+            'message' => 'success',
+            'model'=>$model
+        ];
     }
 
-    public function filter(Request $request)
+    public function filter($params)
     {
-    	return $this->history->filter($request);
+    	try{
+            $model = $this->history->filter($params);
+        }
+        catch (\Exception $err){
+            return [
+            'status'=> false,
+            'message' => $err->getMessage(),
+            'model'=>null
+            ];
+        }
+
+        return [
+            'status'=>true,
+            'message' => 'success',
+            'model'=>$model
+        ];
     }
 
-    public function flop(Request $request)
+    public function flop()
     {
-    	return $this->history->flop($request);
+    	try{
+            $model = $this->history->flop();
+        }
+        catch (\Exception $err){
+            return [
+            'status'=> false,
+            'message' => $err->getMessage(),
+            'model'=>null
+            ];
+        }
+
+        return [
+            'status'=>true,
+            'message' => 'success',
+            'model'=>$model
+        ];
     }
 
-    public function rotate(Request $request)
+    public function rotate($params)
     {
-    	return $this->history->rotate($request);
+    	try{
+            $model = $this->history->rotate($params);
+        }
+        catch (\Exception $err){
+            return [
+            'status'=> false,
+            'message' => $err->getMessage(),
+            'model'=>null
+            ];
+        }
+
+        return [
+            'status'=>true,
+            'message' => 'success',
+            'model'=>$model
+        ];
     }
 	
-	static function fileStore ($path, $edit_history)
-	{	
-		$model = new History;
-	    try{
-	      	$model = $model->fill([
-	        'edit_history'=> $edit_history,
-	        'result_file_path'=> $path
-	      	]);
-	      	$model->save();
-	    }
-	    catch (\Exception $err){
-	      	logger($err->getMessage());
-
-	    	return response()->json([
-	        'status'=> false,
-	        'message' => $err->getMessage(),
-	        'model'=>null], 422);
-	    }
-	    return response()->json([
-		    'status'=>true,
-		    'message'=>('upload success'),
-		    'model'=>$model], 200);
-	}
-
 	static function findLastId()
 	{
     	return $id = DB::table('histories')->orderBy('id', 'DESC')->take(1)->value('id');

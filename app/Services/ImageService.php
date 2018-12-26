@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Repositories\ImageRepository;
-//use App\Http\Requests\StoreImageRequestValidation;
+use App\Http\Requests\StoreImageRequestValidation;
 use App\Model\History;
 
 class ImageService
@@ -21,9 +21,9 @@ class ImageService
         return $this->imageRepository->show($id);
     }
 
-    public function store(Request $request)
+    public function store(StoreImageRequestValidation $request)
     {
-        return $this->imageRepository->store($request);
+        return $this->imageRepository->store($request->photo);
     }
 
     public function deleteImg(int $id)
@@ -33,26 +33,40 @@ class ImageService
 
     public function border(Request $request)
     {
-    	return $this->imageRepository->border($request);
+    	return $this->imageRepository->border([
+            $request->input('color'),
+            $request->input('width'),
+            $request->input('height')
+        ]);
     }
 
     public function crop(Request $request)
     {
-    	return $this->imageRepository->crop($request);
+    	return $this->imageRepository->crop([
+            $request->input('width'),
+            $request->input('height'),
+            $request->input('startX'),
+            $request->input('startY')
+        ]);
     }
 
     public function filter(Request $request)
     {
-    	return $this->imageRepository->filter($request);
+    	return $this->imageRepository->filter([
+            $request->input('radius'),
+            $request->input('sigma')
+        ]);
     }
 
-    public function flop(Request $request)
+    public function flop()
     {
-    	return $this->imageRepository->flop($request);
+    	return $this->imageRepository->flop();
     }
 
     public function rotate(Request $request)
     {
-    	return $this->imageRepository->rotate($request);
+    	return $this->imageRepository->rotate([
+            $request->input('direction')
+        ]);
     }
 }

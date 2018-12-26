@@ -16,6 +16,13 @@ class CropController extends Controller
 
     public function cropImage(Request $request)
     {
-        return $this->imageService->crop($request);
+    	try {
+        	$result = $this->imageService->crop($request);
+        }
+        catch (\Exception $err) {
+        	return response()->json($result, 402);
+        }
+
+        return response()->json($result, 200);
     }
 }

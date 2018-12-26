@@ -16,6 +16,13 @@ class RotateController extends Controller
 
     public function rotateImage(Request $request)
     {
-        return $this->imageService->rotate($request);
+        try {
+        	$result = $this->imageService->rotate($request);
+        }
+        catch (\Exception $err) {
+        	return response()->json($result, 402);
+        }
+
+        return response()->json($result, 200);
     }
 }

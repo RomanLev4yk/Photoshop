@@ -17,11 +17,11 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-	Route::prefix('/store')
+	Route::prefix('/image')
 		->group(function () {
-			Route::get('/{id}', 'StoreController@showImage');
-		    Route::post('/', 'StoreController@storeImage');
-		    Route::delete('/{id}', 'StoreController@deleteImage');
+			Route::get('/{id}', 'ImageController@showImage');
+		    Route::post('/', 'ImageController@storeImage');
+		    Route::delete('/{id}', 'ImageController@deleteImage');
 	}); 
 
 	Route::prefix('/rotate')

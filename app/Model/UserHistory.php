@@ -1,10 +1,10 @@
 <?php
 
-namespace App\model;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User_History extends Model
+class UserHistory extends Model
 {
     protected $table='users_histories';
 }
