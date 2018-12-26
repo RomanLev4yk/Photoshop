@@ -3,14 +3,19 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use App\Repositories\ImageRepository;
-use Imagick;
+use App\Packages\BasePhotoshop;
 
 class History extends Model
 {
     protected $table='histories';
     protected $fillable = ['edit_history', 'result_file_path'];
+    protected $basephotoshop;
+
+    public function __construct()
+    {
+        $this->basephotoshop = new BasePhotoshop;
+    }
 
     public function show(int $id)
     {
@@ -31,20 +36,15 @@ class History extends Model
         $path = $photo->storeAs('photos', $filename);
         $edit_history = 'file store';
 
-        return $this->fileStore($path, $edit_history);
+        return $this->fileStoreDB($path, $edit_history);
     }
 
     public function deleteImg(int $id)
     {      
         $edit_file = History::findOrFail($id);
         $find_file = explode("app", __DIR__);
-        try{
-            unlink( $find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);;
-        }
-        catch (\Exception $err){
-            throw $err;
-        }      
 
+        $this->basephotoshop->deleteImageFile($edit_file, $find_file);     
         try{
             History::destroy($id);
         }
@@ -57,129 +57,80 @@ class History extends Model
 
     public function border($params)
     {
-        $edit_file = History::findOrFail(ImageRepository::findLastId());
+        $edit_file = History::findOrFail($this->basephotoshop->findLastId());
         $find_file = explode("app", __DIR__); 
         $realpath = realpath($find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);
 
-        $imagick = new Imagick ($realpath);
-        try{
-            $imagick->borderImage($params[0], $params[1], $params[2]);
-        }
-        catch (\Exception $err){
-            throw $err;
-        }
+        $imagick = $this->basephotoshop->border($realpath, $params);
+        $filename = $this->basephotoshop->saveEditImageFile($realpath, $imagick, $find_file);
 
-        $extension = explode(".", $realpath);
-        $filename = 'edited-photo-' . time() . '.' . $extension[1];
-        file_put_contents( $find_file[0] . "storage\app\photos\\" . $filename, $imagick);
         $path = 'photos/' . $filename;
         $edit_history = 'image border';
 
-        return $this->fileStore($path, $edit_history);
+        return $this->fileStoreDB($path, $edit_history);
     }
 
     public function crop($params)
     {
-        $edit_file = History::findOrFail(ImageRepository::findLastId());
+        $edit_file = History::findOrFail($this->basephotoshop->findLastId());
         $find_file = explode("app", __DIR__); 
         $realpath = realpath($find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);
 
-        $imagick = new Imagick ($realpath);
-        try{
-            $imagick->cropimage($params[0], $params[1], $params[2], $params[3]);
-        }
-        catch (\Exception $err){
-            throw $err;
-        }
-
-        $extension = explode(".", $realpath);
-        $filename = 'edited-photo-' . time() . '.' . $extension[1];
-        file_put_contents( $find_file[0] . "storage\app\photos\\" . $filename, $imagick);
+        $imagick = $this->basephotoshop->crop($realpath, $params);
+        $filename = $this->basephotoshop->saveEditImageFile($realpath, $imagick, $find_file);
+        
         $path = 'photos/' . $filename;
         $edit_history = 'image crop';
 
-        return $this->fileStore($path, $edit_history);
+        return $this->fileStoreDB($path, $edit_history);
     }
 
     public function filter($params)
     {
-        $edit_file = History::findOrFail(ImageRepository::findLastId());
+        $edit_file = History::findOrFail($this->basephotoshop->findLastId());
         $find_file = explode("app", __DIR__); 
         $realpath = realpath($find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);
 
-        $imagick = new Imagick ($realpath);
-        try{
-            $imagick->charcoalImage($params[0], $params[1]);
-        }
-        catch (\Exception $err){
-            throw $err;
-        }
+        $imagick = $this->basephotoshop->filter($realpath, $params);
+        $filename = $this->basephotoshop->saveEditImageFile($realpath, $imagick, $find_file);
 
-        $extension = explode(".", $realpath);
-        $filename = 'edited-photo-' . time() . '.' . $extension[1];
-        file_put_contents( $find_file[0] . "storage\app\photos\\" . $filename, $imagick);
         $path = 'photos/' . $filename;
         $edit_history = 'image filter';
 
-        return $this->fileStore($path, $edit_history);
+        return $this->fileStoreDB($path, $edit_history);
     }
 
     public function flop()
     {
-        $edit_file = History::findOrFail(ImageRepository::findLastId());
+        $edit_file = History::findOrFail($this->basephotoshop->findLastId());
         $find_file = explode("app", __DIR__); 
         $realpath = realpath($find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);
 
-        $imagick = new Imagick ($realpath);
-        try{
-            $imagick->flopimage();
-        }
-        catch (\Exception $err) {
-            throw $err;
-        }
+        $imagick = $this->basephotoshop->flop($realpath);
+        $filename = $this->basephotoshop->saveEditImageFile($realpath, $imagick, $find_file);
 
-        $extension = explode(".", $realpath);
-        $filename = 'edited-photo-' . time() . '.' . $extension[1];
-        file_put_contents( $find_file[0] . "storage\app\photos\\" . $filename, $imagick);
         $path = 'photos/' . $filename;
         $edit_history = 'image flop';
 
-        return $this->fileStore($path, $edit_history);
+        return $this->fileStoreDB($path, $edit_history);
     }
 
     public function rotate($params)
     {
-        $edit_file = History::findOrFail(ImageRepository::findLastId());
+        $edit_file = History::findOrFail($this->basephotoshop->findLastId());
         $find_file = explode("app", __DIR__); 
         $realpath = realpath($find_file[0] . "storage\app\\" . $edit_file["result_file_path"]);
 
-        $imagick = new Imagick ($realpath);
-        try{
-            if ($params[0] == 'right'){
-                $imagick->rotateimage('black', 90);
-            }
-            elseif($params[0] == 'left'){
-                $imagick->rotateimage('black', -90);
-            }
-            else {
-                echo('Set the "left" or "right" rotate direction');
-                exit;
-            }
-        }
-        catch (\Exception $err){
-            throw $err;
-        }
+        $imagick = $this->basephotoshop->rotate($realpath, $params);
+        $filename = $this->basephotoshop->saveEditImageFile($realpath, $imagick, $find_file);
 
-        $extension = explode(".", $realpath);
-        $filename = 'edited-photo-' . time() . '.' . $extension[1];
-        file_put_contents( $find_file[0] . "storage\app\photos\\" . $filename, $imagick);
         $path = 'photos/' . $filename;
         $edit_history = 'image rotate';
 
-        return $this->fileStore($path, $edit_history);
+        return $this->fileStoreDB($path, $edit_history);
     }
 
-    public function fileStore ($path, $edit_history)
+    public function fileStoreDB ($path, $edit_history)
     {   
         $model = new History;
         try{

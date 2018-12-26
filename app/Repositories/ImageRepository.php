@@ -2,9 +2,7 @@
 
 namespace App\Repositories;
 
-use Illuminate\Http\Request;
 use App\Model\History;
-use Illuminate\Support\Facades\DB;
 
 class ImageRepository
 {
@@ -173,10 +171,5 @@ class ImageRepository
             'message' => 'success',
             'model'=>$model
         ];
-    }
-	
-	static function findLastId()
-	{
-    	return $id = DB::table('histories')->orderBy('id', 'DESC')->take(1)->value('id');
     }
 }
